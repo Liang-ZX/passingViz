@@ -1,16 +1,17 @@
 # Uncovering Successful Teamwork in Soccer Matches Through Network Science
 
-## Data
-All data have been uploaded in [`./data`](./data) directory.
-1) matches.csv
-2) passingevents.csv
-3) fullevents.csv
+## Data Files
+All data have been uploaded to [`data`](./data) directory.
+1. matches.csv
+2. passingevents.csv
+3. fullevents.csv
 
-## Environment
+## Environment Settings
 ```shell
 pip install -r requirement.txt
 ```
-Please change directory to `code` by
+
+Then please change directory to `code` by
 ```shell
 cd code
 ```
@@ -64,6 +65,8 @@ We also write a program to visualize the change of centroid around the whole mat
 python draw_centroid.py --match_id <match_id> --time_span <timespan>
 ```
 The result will be saved in `result/fig/` directory with the name `"centroid_${Match_id}.jpg"`
+
+<img src=resource/centroid.jpg width=600>
 
 **The Distribution of Microscale Features**
 ```shell
