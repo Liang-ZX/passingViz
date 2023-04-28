@@ -28,7 +28,7 @@ The result will be saved in `result/fig/` directory with the name `"network_${Ma
 ```shell
 python create_adj_matrix.py
 ```
-The generated matrices are saved in `data/adj/` directory.
+The generated matrices are saved in `result/adj/` directory with the name `adj_matrix${Match_id}.csv`. And `player_index_map.txt` save the mapping information from player names to their corresponding indices used in the adjacent matrices.
 
 ## Micro-scale Features
 Including **Clossness Centrality, Betweeness Centrality, Local Clustering Coefficient and Eigenvector Centrality**.

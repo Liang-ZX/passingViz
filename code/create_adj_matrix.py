@@ -1,8 +1,8 @@
 import csv
-import matplotlib.pyplot as plt
-import networkx as nx
+import pickle
 import numpy as np
 import os
+from tqdm import tqdm
 
 
 ROOT=".."
@@ -51,8 +51,12 @@ def read_data(flag = False):
     
 def build_matrix():
     members, passes, player_index, players = read_data(flag = True)
+    with open(os.path.join(ROOT, 'result/adj/player_index_map.txt'), 'w') as file:
+        file.write("Player Name\t\tIndex\n")
+        for k, v in player_index.items():
+            file.write(str(k) + '\t\t' + str(v) + '\n')
     adj_matrix = np.zeros((38,len(players),len(players)))
-    for i in range(38):
+    for i in tqdm(range(38)):
         for player1, player2 in passes[i+1]:
             adj_matrix[i][player_index[player1]][player_index[player2]] = passes[i+1][(player1, player2)]
         b = adj_matrix[i]
@@ -62,16 +66,16 @@ def build_matrix():
                 b = np.delete(b, k, axis = 1)
             else:
                 aa.append(k)
-        if not os.path.exists(os.path.join(ROOT, "data/adj")):
-            os.makedirs(os.path.join(ROOT, "data/adj"))
-        write_dir = os.path.join(ROOT, "data/adj/adj_matrix"+str(i+1)+".csv")
+        if not os.path.exists(os.path.join(ROOT, "result/adj")):
+            os.makedirs(os.path.join(ROOT, "result/adj"))
+        write_dir = os.path.join(ROOT, "result/adj/adj_matrix"+str(i+1)+".csv")
         csvFile=open(write_dir,'w',newline='')
         writer=csv.writer(csvFile)
         aa.reverse()
-        writer.writerow((None,)+tuple(aa))
+        writer.writerow(("Index",)+tuple(aa))
         for j in range(len(players)):
             if players[j] in members[i+1]:
-                writer.writerow((j,)+tuple(b[j]))
+                writer.writerow((j,) + tuple(b[j]))
         csvFile.close()
 
 
