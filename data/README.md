@@ -1,3 +1,5 @@
+# Data Usage
+
 ## Data Files
 1) matches.csv
 2) passingevents.csv
@@ -5,7 +7,7 @@
 
 ## Data Descriptions
 
-1) matches.csv
+### 1. matches.csv
 
 ```
 MatchID
@@ -29,8 +31,7 @@ Whether the Huskies were the `home' team or `away' team.
 CoachID
 A unqiue identifier for the Huskies coach for this match.
 ```
-
-2) passingevents.csv
+### 2. passingevents.csv
 ```
 MatchID
 A unqiue identifier for each match played during the season (see matches.csv).
@@ -65,8 +66,7 @@ The x-coordinate on the field at the pass destination.  (see EventOrigin_x)
 EventDestination_y
 The y-coordinate on the field at the pass destination.  (see EventOrigin_y)
 ```
-
-3) fullevents.csv
+### 3. fullevents.csv
 ```
 MatchID
 A unqiue identifier for each match played during the season (see matches.csv).
